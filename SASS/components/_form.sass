@@ -1,0 +1,113 @@
+.book
+    min-height: 50rem
+    background: linear-gradient(115deg,rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 55%, rgba(255, 194, 133, 0.9) 55.1%, rgba(161, 79, 3, 0) 100%), url("../images/form.jpg") center / cover no-repeat
+    box-shadow: $box-shadow
+    border-radius: .5rem
+    overflow: hidden
+    @include respond(tab-port)
+        background: linear-gradient(115deg,rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 505%, rgba(255, 194, 133, 0.9) 55.1%, rgba(161, 79, 3, 0) 100%), url("../images/form.jpg") center / cover no-repeat
+
+
+.form
+    width: 65%
+    padding-top: 5rem
+    padding-left: 5rem
+    @include respond(tab-port)
+        width: 100%
+        padding-top: 3rem
+        padding-left: 3rem
+    @include respond(phone)
+        padding-left: 0
+    &__group:not(:last-child)
+        margin-bottom: 2rem
+    &__group:nth-child(4)
+        margin-bottom: 4rem
+    @include respond(tab-land)
+        &__group:not(:last-child)
+            margin-bottom: 1rem
+        &__group:nth-child(4)
+            margin-bottom: 2.5rem
+    @include respond(tab-port)
+        &__group:last-child
+            text-align: center
+    @include respond(phone)
+        &__group:not(:nth-child(4))
+            text-align: center
+        &__group:nth-child(4)
+            text-align: left !important
+            padding-left: 1.5rem
+    &__input
+        padding: 2rem 0rem 2rem 2rem
+        width: 65%
+        font-size: $font-size-paragraph
+        letter-spacing: .2rem
+        font-weight: 400
+        color: $color-black
+        background-color: $color-white
+        border: none
+        border-bottom: .3rem solid transparent
+        border-radius: .5rem
+        box-shadow: $box-shadow
+        @include respond(tab-port)
+            width: 90%
+        &:focus-visible
+            outline: none
+            border-bottom: .3rem solid #66D763
+            box-shadow: $box-shadow
+        &:focus:invalid
+            border-bottom: .3rem solid #D76363
+    &__label
+        font-size: $font-size-paragraph
+        letter-spacing: .2rem
+        font-weight: 400
+        display: block
+        margin-top: 1rem
+        margin-left: 1.5rem
+        transition: all .4s
+    &__input:placeholder-shown + &__label
+        opacity: 0
+        visibility: hidden
+        transform: translateY(2rem)
+    &__group-radio
+        // width: 40%
+        display: inline-block
+        @include respond(tab-land)
+            display: block
+        &:not(:last-child)
+            margin-right: 2rem
+            @include respond(tab-land)
+                display: block
+                &:not(:last-child)
+                    margin-bottom: 2rem
+    &__group-radio:nth-child(1)
+        // width: 30%
+    &__input-radio
+        display: none
+    &__label-radio
+        cursor: pointer
+        position: relative
+        padding-left: 4rem
+    &__button-radio
+        display: block
+        position: absolute
+        left: 0
+        top: -0.4rem
+        height: 3rem
+        width: 3rem
+        border-radius: 50%
+        border: .5rem solid $color-brown-light
+        &::after
+            content: ""
+            display: block
+            height: 1.5rem
+            width: 1.5rem
+            border-radius: 50%
+            background-color: $color-brown-light
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            opacity: 0
+            transition: all .3s
+    &__input-radio:checked ~ &__label-radio &__button-radio::after
+        opacity: 1

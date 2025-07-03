@@ -1,0 +1,129 @@
+.card-tour
+    height: 52rem
+    perspective: 150rem
+    -moz-perspective: 150rem
+    position: relative
+    @media only screen and (max-width: 900px), (hover: none)
+        height: auto
+    &__side
+        height: 52rem
+        width: 100%
+        transition: all .8s ease-out
+        color: $color-white
+        position: absolute
+        top: 0
+        left: 0
+        backface-visibility: hidden
+        box-shadow: $box-shadow
+        border-radius: .5rem
+        overflow: hidden
+        @media only screen and (max-width: 900px), (hover: none)
+            height: auto
+            position: relative
+        &_front
+            @media only screen and (max-width: 900px), (hover: none)
+                padding-bottom: 12rem
+        &_back
+            background: linear-gradient(120deg, $color-brown-light, $color-brown-dark)
+            transform: rotateY(180deg)
+            @media only screen and (max-width: 900px), (hover: none)
+                transform: rotateY(0deg)
+                padding: 5rem
+                padding-top: 12rem
+                margin-top: -10rem
+                clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%)
+    &:hover &__side_front
+        transform: rotateY(-180deg)
+        @include respond(tab-port)
+            transform: rotateY(0deg)
+    &:hover &__side_back
+        transform: rotateY(0deg)
+    &__mobile-none
+        @include respond(tab-port)
+            display: none !important
+
+    &__img
+        position: relative
+        height: 21rem
+        background-blend-mode: hard-light
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+        &_1
+            background: $color-brown-light url("../images/img1.jpg") center / cover no-repeat
+        &_2
+            background: $color-brown-light url("../images/img2.jpg") center / cover no-repeat
+        &_3
+            background: $color-brown-light url("../images/img3.jpg") center / cover no-repeat
+        @media only screen and (max-width: 900px), (hover: none)
+            height: 30rem
+    &__title
+        position: absolute
+        top: 17rem
+        right: 0
+        font-size: 2.8rem
+        letter-spacing: .2rem
+        font-weight: 300
+        text-transform: uppercase
+        text-align: right
+        @include respond(tab-port)
+            top: 25rem
+            font-size: 3.8rem
+    &__span
+        background: linear-gradient(90deg, $color-brown-light, $color-brown-dark)
+        padding: 1rem 2rem .3rem 2rem
+        &_1
+        &_2
+            position: absolute
+            top: 3.5rem
+            right: 0
+            padding-top: 0
+            padding-bottom: 1rem
+            @include respond(tab-port)
+                top: 4.4rem
+    &__desc
+        ul
+            list-style: none
+            margin: 0 auto
+            text-align: center
+            li
+                display: inline-block
+                width: auto
+                font-size: $font-size-paragraph
+                letter-spacing: .2rem
+                color: $color-gray
+                border-bottom: 1px solid $color-gray
+                text-align: center
+                &:not(:last-child)
+                    margin-bottom: 2rem
+                @include respond(tab-land)
+                    font-size: 1.5rem
+                @include respond(tab-port)
+                    font-size: 2rem
+    &__backSide-box
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        @media only screen and (max-width: 900px), (hover: none)
+            position: relative
+            top: 0%
+            left: 0%
+            transform: translate(0%, 0%)
+            text-align: center
+    &__text
+        margin-bottom: 8.5rem
+        letter-spacing: .2rem
+        text-transform: uppercase
+        text-align: center
+        color: $color-white
+        @media only screen and (max-width: 900px), (hover: none)
+            margin-bottom: 4rem
+        @include respond(phone)
+            margin-bottom: 4rem
+        &_1
+            font-size: $font-size-paragraph
+            font-weight: 300
+        &_2
+            font-size: 6rem
+            font-weight: 500
+    &__btn
+        box-shadow: $box-shadow
